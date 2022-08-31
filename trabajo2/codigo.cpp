@@ -60,7 +60,7 @@ void productoA()
     int i=1;
     int elemento;
     buffer bufer;
-    bufer.insertar(1,1);
+    bufer.insertar(1,i);
     printf("\n\t Productor A genera elemnto de tipo 1 y pone en la posicion  :%i  \n",i);
 }
 void productoB()
@@ -68,7 +68,7 @@ void productoB()
     int i=2;
     int elemento;
     buffer bufer;
-    bufer.insertar(2,2);
+    bufer.insertar(2,i);
     printf("\n\t Productor B genera elemnto de tipo 1 y pone en la posicion  :%i  \n",i);
 }
 void consumidorA(){
