@@ -39,6 +39,7 @@ static void Pllegada(int i)
         if(nespera<n) //verifica si la espera esta llena 
         {
             nespera--;
+            cout<<endl<<"carril abierto Nº"<<i;
             cout<<endl<<"El coche esta llegando carril Nº "<<i;
             cout<<endl<<"El coche esta esperando carril Nº "<<i;
             sem_post(&coche);//desbloquea  los coches
@@ -64,6 +65,8 @@ int main()
     {
         pr_Llegada[i]=thread(Pllegada,i);
     }
+    pr_Salida=thread(Psalida);
+
     for(int i=0;i<n;i++)
     {
         if(pr_Llegada[i].joinable())
@@ -71,7 +74,6 @@ int main()
             pr_Llegada[i].join();
         }
     }
-    pr_Salida=thread(Psalida);
     if (pr_Salida.joinable())
     {
         pr_Salida.join();
