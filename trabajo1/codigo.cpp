@@ -39,9 +39,9 @@ static void Pllegada(int i)
         if(nespera<n) //verifica si la espera esta llena 
         {
             nespera--;
-            cout<<endl<<"carril abierto Nº"<<i;
-            cout<<endl<<"El coche esta llegando carril Nº "<<i;
-            cout<<endl<<"El coche esta esperando carril Nº "<<i;
+            cout<<endl<<"carril abierto Nº"<<i+1;
+            cout<<endl<<"El coche esta llegando carril Nº "<<i+1;
+            cout<<endl<<"El coche esta esperando carril Nº "<<i+1;
             sem_post(&coche);//desbloquea  los coches
             sem_post(&mutex);//desbloquea la barrera
             sem_post(&salida);//desbloquea la salida
