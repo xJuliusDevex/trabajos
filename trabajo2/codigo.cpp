@@ -49,13 +49,34 @@ int buffer::retirar(int elemento,int &pos){
     {
         frente=a;
         elemento=cola[frente];
-        return=elemento;
+        return elemento;
         int i=frente;   
         sleep(1);
     }
     sem_post(&mutex);
 }
 void productoA()
+{   
+    int i=1;
+    int elemento;
+    buffer bufer;
+    bufer.insertar(1,1);
+    printf("\n\t Productor A genera elemnto de tipo 1 y pone en la posicion  :%i  \n",i);
+}
+void productoB()
 {
+    int i=2;
+    int elemento;
+    buffer bufer;
+    bufer.insertar(2,2);
+    printf("\n\t Productor B genera elemnto de tipo 1 y pone en la posicion  :%i  \n",i);
+}
+void consumidorA(){
+
+}
+void consumidorB(){
+
+}
+void consumidorByA(){
 
 }
