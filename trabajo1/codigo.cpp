@@ -9,6 +9,9 @@ using namespace std;
 sem_t mutex,coche,salida;
 //integer
 int n,nespera;
+//hilos
+thread *pr_Llegada=new thread[4];
+thread pr_Salida;
 /*------------------declaracion de procesos------------------------------*/
 static void Psalida();
 static void Pllegada(int);
@@ -48,10 +51,29 @@ static void Pllegada(int i)
         }
     }
 }
-
-
-
+/*------------------------main--------------------*/
 int main()
 {
-
+    /*-------inicializacion------*/
+    sem_init(&mutex,0,1);
+    sem_init(&coche,0,0);
+    sem_init(&salida,0,0);
+    nespera=0;
+    n=4;
+    for(int i=0;i<n;i++)
+    {
+        pr_Llegada[i]=thread(Pllegada,i);
+    }
+    for(int i=0;i<n;i++)
+    {
+        if(pr_Llegada[i].joinable())
+        {
+            pr_Llegada[i].join();
+        }
+    }
+    pr_Salida=thread(Psalida);
+    if (pr_Salida.joinable())
+    {
+        pr_Salida.join();
+    }
 }
